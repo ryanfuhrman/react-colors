@@ -3,7 +3,7 @@ import { withStyles } from '@material-ui/styles';
 
 const styles = {
   root: {
-    borderColor: "white",
+    backgroundColor: "white",
     border: "1px solid black",
     borderRadius: "5px",
     padding: "0.5rem",
