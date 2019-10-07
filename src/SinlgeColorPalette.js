@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import Navbar from './Navbar';
-import PaletteFooter from './PaletteFooter';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import Navbar from "./Navbar";
+import PaletteFooter from "./PaletteFooter";
 import ColorBox from "./ColorBox";
 
 class SinlgeColorPalette extends Component {
@@ -9,7 +9,7 @@ class SinlgeColorPalette extends Component {
     super(props);
     this._shades = this.gatherShades(this.props.palette, this.props.colorId);
     this.state = {
-      format: 'hex'
+      format: "hex",
     };
     this.changeFormat = this.changeFormat.bind(this);
   }
@@ -20,7 +20,7 @@ class SinlgeColorPalette extends Component {
     for (let key in allColors) {
       shades = shades.concat(
         allColors[key].filter(color => color.id === colorToFilterBy)
-      )
+      );
     }
     // return all shades of given color
     return shades.slice(1);
@@ -34,22 +34,28 @@ class SinlgeColorPalette extends Component {
     const { format } = this.state;
     const { paletteName, emoji, id } = this.props.palette;
     const colorBoxes = this._shades.map(color => (
-      <ColorBox key={color.name} name={color.name} background={color[format]} showLink={false}/>
-    ))
+      <ColorBox
+        key={color.name}
+        name={color.name}
+        background={color[format]}
+        showLink={false}
+      />
+    ));
     return (
       <div className="SingleColorPalette Palette">
-        <Navbar handleChange={this.changeFormat} showingAllColors={false}/>
+        <Navbar handleChange={this.changeFormat} showingAllColors={false} />
         <div className="Palette-colors">
           {colorBoxes}
           <div className="go-back ColorBox">
-            <Link to={`/palette/${id}`} className="back-button">GO BACK</Link>
+            <Link to={`/palette/${id}`} className="back-button">
+              GO BACK
+            </Link>
           </div>
         </div>
         <PaletteFooter paletteName={paletteName} emoji={emoji} />
       </div>
-    )
+    );
   }
 }
-
 
 export default SinlgeColorPalette;
