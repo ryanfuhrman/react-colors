@@ -4,7 +4,7 @@ import Navbar from "./Navbar";
 import PaletteFooter from "./PaletteFooter";
 import ColorBox from "./ColorBox";
 
-class SinlgeColorPalette extends Component {
+class SingleColorPalette extends Component {
   constructor(props) {
     super(props);
     this._shades = this.gatherShades(this.props.palette, this.props.colorId);
@@ -38,7 +38,7 @@ class SinlgeColorPalette extends Component {
         key={color.name}
         name={color.name}
         background={color[format]}
-        showLink={false}
+        showingFullPalette={false}
       />
     ));
     return (
@@ -58,4 +58,4 @@ class SinlgeColorPalette extends Component {
   }
 }
 
-export default SinlgeColorPalette;
+export default SingleColorPalette;
