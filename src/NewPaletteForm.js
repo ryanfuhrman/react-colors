@@ -56,7 +56,6 @@ class NewPaletteForm extends Component {
     });
   }
   addRandomColor() {
-    // pick random color from existing palettes
     const allColors = this.props.palettes.map(p => p.colors).flat();
     const rand = Math.floor(Math.random() * allColors.length);
     const randomColor = allColors[rand];
@@ -134,7 +133,7 @@ class NewPaletteForm extends Component {
             <ColorPickerForm
               paletteIsFull={paletteIsFull}
               addNewColor={this.addNewColor}
-              colors={this.state.colors}
+              colors={colors}
             />
           </div>
         </Drawer>
